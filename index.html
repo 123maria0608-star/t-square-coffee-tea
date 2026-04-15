@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/demo-shared.css">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -214,6 +215,7 @@
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#hours">Hours</a>
+        <a href="#menu">Menu</a>
         <a href="#gallery">Gallery</a>
         <a href="#reviews">Reviews</a>
         <a href="#contact">Contact</a>
@@ -228,8 +230,8 @@
         <h1>T-Square Coffee &amp; Tea</h1>
         <p>A polished Willow Glen coffee brand with enough review credibility to support a higher-ticket site instead of relying only on Maps.</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="tel:6506805969">Call (650) 680-5969</a>
-          <a class="button button-ghost" href="#contact">See contact details</a>
+          <a class="button button-primary" href="https://www.doordash.com/en-GB/store/t-square-coffee-%26-tea-san-jose-24650730/" target="_blank" rel="noreferrer">Order on DoorDash</a>
+          <a class="button button-ghost" href="#menu">See menu & prices</a>
         </div>
       </div>
       <aside class="hero-stats">
@@ -282,6 +284,38 @@
           <p style="margin:0;"><strong>Best opener:</strong> “I mocked up how your business could look with a premium one-page site that actually matches your reputation.”</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section id="menu">
+    <div class="container">
+      <div class="section-kicker">Menu & Ordering</div>
+      <h2>Real order buttons and live menu pricing.</h2>
+      <div class="order-links">
+        <a class="button button-primary" href="https://www.doordash.com/en-GB/store/t-square-coffee-%26-tea-san-jose-24650730/" target="_blank" rel="noreferrer">Order on DoorDash</a>
+        <a class="button" href="https://www.ubereats.com/store/tsquare-coffee-%26-tea/FNjI7CSeQ9ejC6mjY-5r2Q" target="_blank" rel="noreferrer" style="background:color-mix(in srgb, var(--primary) 10%, white);color:var(--accent);">Order on Uber Eats</a>
+        <a class="button" href="tel:6506805969" style="background:color-mix(in srgb, var(--secondary) 30%, white);color:var(--accent);">Call for pickup</a>
+      </div>
+      <div class="menu-grid" style="margin-top:1.5rem;">
+        <div class="card menu-card">
+          <h3>Signature Drinks</h3>
+          <ul class="menu-list">
+            <li><span>Iced Velvet Oat Espresso</span><span>$7.50</span></li>
+            <li><span>Thai Style Coconut Caffe Latte</span><span>$7.55</span></li>
+            <li><span>Mango Thai Coconut Latte</span><span>$7.50</span></li>
+            <li><span>Rose Latte</span><span>$6.85</span></li>
+          </ul>
+        </div>
+        <div class="card menu-card">
+          <h3>Coffee & Tea Favorites</h3>
+          <ul class="menu-list">
+            <li><span>Vanilla Latte</span><span>$6.85</span></li>
+            <li><span>Matcha Latte</span><span>$6.65</span></li>
+            <li><span>Rose Latte</span><span>$6.85</span></li>
+          </ul>
+        </div>
+      </div>
+      <p class="source-note">Pricing and ordering links checked from DoorDash and Uber Eats on April 15, 2026, so the owner can see exactly how a polished first-party menu could sit above the delivery apps.</p>
     </div>
   </section>
 
@@ -415,51 +449,7 @@
   </div>
 
 
-  <script>
-
-    const businessName = "T-Square Coffee & Tea";
-    document.querySelectorAll('[data-open-modal]').forEach((button) => {
-      button.addEventListener('click', () => {
-        document.getElementById(button.dataset.openModal).classList.add('open');
-      });
-    });
-    document.querySelectorAll('[data-close-modal]').forEach((button) => {
-      button.addEventListener('click', () => {
-        button.closest('.modal').classList.remove('open');
-      });
-    });
-    document.querySelectorAll('.modal').forEach((modal) => {
-      modal.addEventListener('click', (event) => {
-        if (event.target === modal) modal.classList.remove('open');
-      });
-    });
-    document.querySelectorAll('.modal form').forEach((form) => {
-      form.addEventListener('submit', async (event) => {
-        event.preventDefault();
-        const status = form.querySelector('.status');
-        const payload = {
-          business: businessName,
-          request_type: form.dataset.requestType,
-          name: form.name.value,
-          phone: form.phone.value,
-          message: form.message.value,
-        };
-        status.textContent = 'Sending...';
-        try {
-          const response = await fetch("https://formspree.io/f/mjgpndvy", {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify(payload)
-          });
-          if (!response.ok) throw new Error('Formspree request failed');
-          status.textContent = 'Update sent successfully.';
-          form.reset();
-        } catch (error) {
-          status.textContent = 'Could not send update right now.';
-        }
-      });
-    });
-
-  </script>
+  <script>window.businessDemoName = "T-Square Coffee & Tea";</script>
+  <script src="assets/demo-shared.js"></script>
 </body>
 </html>
