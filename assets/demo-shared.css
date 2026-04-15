@@ -1,0 +1,80 @@
+.service-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  gap: 1.5rem;
+}
+
+.service-card,
+.menu-card {
+  padding: 1.6rem;
+}
+
+.service-list,
+.menu-list,
+.service-stack {
+  list-style: none;
+  padding: 0;
+  margin: 1.25rem 0 0;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.service-list li,
+.menu-list li,
+.service-stack li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.service-list strong {
+  color: var(--accent);
+}
+
+.inline-actions,
+.order-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 1.5rem;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.menu-list li span:last-child {
+  font-weight: 800;
+  color: var(--primary);
+  white-space: nowrap;
+}
+
+.source-note {
+  color: var(--muted);
+  line-height: 1.8;
+  margin-top: 1.25rem;
+}
+
+.service-stack li {
+  display: block;
+  background: color-mix(in srgb, var(--primary) 8%, white);
+  border: 1px solid color-mix(in srgb, var(--primary) 18%, white);
+  border-radius: 18px;
+  padding: 1rem;
+}
+
+.service-stack h3 {
+  font-size: 1rem;
+  margin-bottom: 0.35rem;
+}
+
+@media (max-width: 900px) {
+  .service-grid,
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+}
